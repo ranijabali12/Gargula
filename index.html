@@ -270,23 +270,57 @@
     margin:28px -24px 0;padding:4px 24px 6px;
   }
   .testi-grid::-webkit-scrollbar{display:none;}
-  .testi-card{
-    border-radius:18px;padding:24px;background:var(--panel);border:1px solid var(--line);
-    flex:0 0 82%;scroll-snap-align:center;min-width:0;
-  }
-  .testi-stars{color:var(--cyan);font-size:13px;letter-spacing:2px;margin-bottom:14px;}
-  .testi-quote{font-size:14.5px;color:var(--text);margin-bottom:18px;min-height:56px;}
-  .testi-who{font-size:13px;color:var(--text);font-weight:700;border-top:1px solid var(--line);padding-top:12px;}
-  .testi-who span{display:block;font-weight:400;color:var(--muted-2);font-size:12px;margin-top:2px;}
   .faq-link{display:block;text-align:center;margin-top:26px;font-size:13.5px;font-weight:600;color:var(--cyan);}
 
   .foot-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line);}
   .foot-links a{font-size:12.5px;color:var(--muted);}
   .foot-links a:hover{color:var(--text);}
 
+  /* ---------- depoimentos: deck de cartas arrastável ---------- */
+  .swipe-wrap{margin-top:36px;}
+  .swipe-stack{
+    position:relative;max-width:400px;height:302px;margin:0 auto;
+    touch-action:pan-y;
+  }
+  .swipe-card{
+    position:absolute;inset:0;border-radius:20px;background:var(--panel);border:1px solid var(--line);
+    padding:28px 26px 24px;display:flex;flex-direction:column;cursor:grab;user-select:none;
+    transition:transform .42s cubic-bezier(.2,.8,.2,1),opacity .42s ease,box-shadow .3s ease;
+    will-change:transform;
+  }
+  .swipe-card:active{cursor:grabbing;}
+  .swipe-card.dragging{transition:none;}
+  .swipe-card:nth-child(1){z-index:4;transform:translate(0,0) rotate(0deg) scale(1);opacity:1;border-color:rgba(155,47,255,.55);box-shadow:0 30px 60px -22px rgba(155,47,255,.5);}
+  .swipe-card:nth-child(2){z-index:3;transform:translate(0,14px) rotate(-3.5deg) scale(.94);opacity:.7;pointer-events:none;}
+  .swipe-card:nth-child(3){z-index:2;transform:translate(0,26px) rotate(3deg) scale(.88);opacity:.42;pointer-events:none;}
+  .swipe-card:nth-child(n+4){z-index:1;transform:translate(0,32px) rotate(0deg) scale(.84);opacity:0;pointer-events:none;}
+  .swipe-card .stars-row{color:var(--cyan);font-size:14px;letter-spacing:3px;margin-bottom:16px;}
+  .swipe-card .quote{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;line-height:1.42;
+    color:var(--text);flex:1;
+  }
+  .result-chip{
+    align-self:flex-start;font-size:11.5px;font-weight:700;color:var(--cyan);
+    background:rgba(35,233,255,.08);border:1px solid rgba(35,233,255,.3);
+    padding:6px 12px;border-radius:100px;margin-top:14px;
+  }
+  .swipe-card .who{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;font-weight:700;color:var(--text);}
+  .swipe-card .who span{display:block;font-weight:400;color:var(--muted-2);font-size:12px;margin-top:2px;}
+
+  .swipe-controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:22px;}
+  .swipe-btn{
+    width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--panel);
+    color:var(--text);font-size:19px;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;transition:border-color .2s,transform .15s;
+  }
+  .swipe-btn:hover{border-color:var(--purple);}
+  .swipe-btn:active{transform:scale(.92);}
+  .swipe-counter{font-size:12.5px;color:var(--muted-2);min-width:44px;text-align:center;font-variant-numeric:tabular-nums;}
+  .swipe-hint{text-align:center;font-size:12.5px;color:var(--muted-2);margin-top:16px;transition:opacity .4s ease;}
+  .swipe-hint.hidden{opacity:0;}
+
   @media(min-width:820px){
-    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:28px 0 0;padding:0;}
-    .testi-card{flex:none;}
+    .swipe-stack{max-width:440px;height:272px;}
   }
 </style>
 </head>
@@ -384,48 +418,81 @@
     </div>
 
     <div class="stats-row">
+      <div class="stat"><div class="stat-num">4,96 / 5</div><div class="stat-lbl">nota média entre mais de 3.200 alunos</div></div>
       <div class="stat"><div class="stat-num">R$15 mil+</div><div class="stat-lbl">por mês faturados pelo Felipe, com 3 contas ativas</div></div>
-      <div class="stat"><div class="stat-num">R$2.500+</div><div class="stat-lbl">faturados pelo Pedro já no primeiro mês</div></div>
-      <div class="stat"><div class="stat-num">5,0 / 5</div><div class="stat-lbl">é a nota média de todos os alunos abaixo</div></div>
+      <div class="stat"><div class="stat-num">2 meses</div><div class="stat-lbl">foi o tempo que o Felipe Rocha levou pra largar a CLT</div></div>
     </div>
 
-    <p class="scroll-hint">Deslize para o lado para ver os depoimentos →</p>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"No primeiro mês já faturei mais de R$2.500 aplicando exatamente o que é ensinado no método."</p>
-        <div class="testi-who">Pedro Afonso<span>Aluno do Método Gárgula</span></div>
+    <div class="swipe-wrap">
+      <div class="swipe-stack" id="swipeStack" tabindex="0" role="group" aria-label="Depoimentos de alunos — arraste para o lado">
+        <div class="swipe-card" data-idx="1" aria-label="Depoimento 1 de 10">
+          <div class="stars-row">★★★★★</div>
+          <p class="quote">"No primeiro mês já faturei mais de R$2.500 aplicando exatamente o que é ensinado no método."</p>
+          <span class="result-chip">R$2.500+ no 1º mês</span>
+          <div class="who">Pedro Afonso<span>Aluno do Método Gárgula</span></div>
+        </div>
+        <div class="swipe-card" data-idx="2" aria-label="Depoimento 2 de 10">
+          <div class="stars-row">★★★★★</div>
+          <p class="quote">"Estou no terceiro mês de curso, já com 3 contas ativas nas plataformas, faturando mais de R$15.000 por mês."</p>
+          <span class="result-chip">R$15 mil+ por mês</span>
+          <div class="who">Felipe Mota<span>Aluno do Método Gárgula</span></div>
+        </div>
+        <div class="swipe-card" data-idx="3" aria-label="Depoimento 3 de 10">
+          <div class="stars-row">★★★★★</div>
+          <p class="quote">"Consegui mudar a situação da minha família. Hoje faturo mais do que faturava de CLT."</p>
+          <span class="result-chip">Mais que na CLT</span>
+          <div class="who">Isabela Nogueira<span>Aluna do Método Gárgula</span></div>
+        </div>
+        <div class="swipe-card" data-idx="4" aria-label="Depoimento 4 de 10">
+          <div class="stars-row">★★★★★</div>
+          <p class="quote">"Valeu muito o investimento. Recomendo pra quem quer começar de verdade."</p>
+          <span class="result-chip">Aprovou o investimento</span>
+          <div class="who">Lucas Fernandes<span>Aluno do Método Gárgula</span></div>
+        </div>
+        <div class="swipe-card" data-idx="5" aria-label="Depoimento 5 de 10">
+          <div class="stars-row">★★★★★</div>
+          <p class="quote">"Curso muito bom. Está me ajudando a faturar tanto no YouTube quanto no TikTok."</p>
+          <span class="result-chip">Fatura em 2 plataformas</span>
+          <div class="who">Arthur Lima<span>Aluno do Método Gárgula</span></div>
+        </div>
+        <div class="swipe-card" data-idx="6" aria-label="Depoimento 6 de 10">
+          <div class="stars-row">★★★★★</div>
+          <p class="quote">"Finalmente tomei a iniciativa de começar — e vi que realmente funciona."</p>
+          <span class="result-chip">Comprovou que funciona</span>
+          <div class="who">Gustavo Ruiz<span>Aluno do Método Gárgula</span></div>
+        </div>
+        <div class="swipe-card" data-idx="7" aria-label="Depoimento 7 de 10">
+          <div class="stars-row">★★★★★</div>
+          <p class="quote">"Valeu super a pena essa compra. Hoje uso o celular pra ganhar dinheiro."</p>
+          <span class="result-chip">Hoje vive do celular</span>
+          <div class="who">Bruno Resende<span>Aluno do Método Gárgula</span></div>
+        </div>
+        <div class="swipe-card" data-idx="8" aria-label="Depoimento 8 de 10">
+          <div class="stars-row">★★★★★</div>
+          <p class="quote">"O investimento retornou em menos de 15 dias. Já estou no segundo mês e até ensinei minha irmã a fazer o mesmo."</p>
+          <span class="result-chip">Retorno em 15 dias</span>
+          <div class="who">Gabriel Felipe<span>Aluno do Método Gárgula</span></div>
+        </div>
+        <div class="swipe-card" data-idx="9" aria-label="Depoimento 9 de 10">
+          <div class="stars-row">★★★★★</div>
+          <p class="quote">"Eu e minha irmã começamos a fazer os vídeos juntas e hoje ajudamos em casa com o que faturamos."</p>
+          <span class="result-chip">Ajudando em casa</span>
+          <div class="who">Raissa Almeida<span>Aluna do Método Gárgula</span></div>
+        </div>
+        <div class="swipe-card" data-idx="10" aria-label="Depoimento 10 de 10">
+          <div class="stars-row">★★★★★</div>
+          <p class="quote">"Comprei meio na dúvida, mas depois de 2 meses larguei a CLT pra viver disso."</p>
+          <span class="result-chip">Largou a CLT em 2 meses</span>
+          <div class="who">Felipe Rocha<span>Aluno do Método Gárgula</span></div>
+        </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Estou no terceiro mês de curso, já com 3 contas ativas nas plataformas, faturando mais de R$15.000 por mês."</p>
-        <div class="testi-who">Felipe Mota<span>Aluno do Método Gárgula</span></div>
+
+      <div class="swipe-controls">
+        <button class="swipe-btn" id="swipePrev" aria-label="Depoimento anterior" type="button">‹</button>
+        <div class="swipe-counter"><span id="swipeIndex">1</span> / 10</div>
+        <button class="swipe-btn" id="swipeNext" aria-label="Próximo depoimento" type="button">›</button>
       </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Consegui mudar a situação da minha família. Hoje faturo mais do que faturava de CLT."</p>
-        <div class="testi-who">Isabela Nogueira<span>Aluna do Método Gárgula</span></div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Valeu muito o investimento. Recomendo pra quem quer começar de verdade."</p>
-        <div class="testi-who">Lucas Fernandes<span>Aluno do Método Gárgula</span></div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Curso muito bom. Está me ajudando a faturar tanto no YouTube quanto no TikTok."</p>
-        <div class="testi-who">Arthur Lima<span>Aluno do Método Gárgula</span></div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Finalmente tomei a iniciativa de começar — e vi que realmente funciona."</p>
-        <div class="testi-who">Gustavo Ruiz<span>Aluno do Método Gárgula</span></div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Valeu super a pena essa compra. Hoje uso o celular pra ganhar dinheiro."</p>
-        <div class="testi-who">Bruno Resende<span>Aluno do Método Gárgula</span></div>
-      </div>
+      <p class="swipe-hint" id="swipeHint">Arraste o card para o lado →</p>
     </div>
   </section>
 
@@ -556,6 +623,122 @@
   measure();
   window.addEventListener('resize', measure);
   if(reduceMotion){ render(0); } else { requestAnimationFrame(frame); }
+})();
+</script>
+<script>
+(function(){
+  var stack = document.getElementById('swipeStack');
+  if(!stack) return;
+  var counterEl = document.getElementById('swipeIndex');
+  var hint = document.getElementById('swipeHint');
+  var total = stack.children.length;
+
+  function updateCounter(){
+    counterEl.textContent = stack.children[0].getAttribute('data-idx');
+  }
+  updateCounter();
+
+  function hideHint(){ hint.classList.add('hidden'); }
+
+  function dismissFront(dirSign){
+    var card = stack.children[0];
+    var flyX = dirSign < 0 ? -620 : 620;
+    var flyRot = dirSign < 0 ? -22 : 22;
+    card.style.transition = 'transform .38s ease, opacity .38s ease';
+    card.style.transform = 'translateX('+flyX+'px) rotate('+flyRot+'deg)';
+    card.style.opacity = '0';
+    setTimeout(function(){
+      stack.appendChild(card);
+      card.style.transition = 'none';
+      card.style.transform = '';
+      card.style.opacity = '';
+      void card.offsetWidth;
+      card.style.transition = '';
+      updateCounter();
+    }, 360);
+  }
+
+  function recallPrev(){
+    var card = stack.lastElementChild;
+    card.style.transition = 'none';
+    card.style.transform = 'translateX(620px) rotate(22deg)';
+    card.style.opacity = '0';
+    stack.insertBefore(card, stack.firstChild);
+    void card.offsetWidth;
+    card.style.transition = 'transform .38s ease, opacity .38s ease';
+    card.style.transform = '';
+    card.style.opacity = '';
+    updateCounter();
+  }
+
+  document.getElementById('swipeNext').addEventListener('click', function(){ hideHint(); dismissFront(-1); });
+  document.getElementById('swipePrev').addEventListener('click', function(){ hideHint(); recallPrev(); });
+
+  stack.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight'){ hideHint(); dismissFront(-1); }
+    else if(e.key === 'ArrowLeft'){ hideHint(); recallPrev(); }
+  });
+
+  var dragging = false, lockedHorizontal = false, resolved = false;
+  var startX = 0, startY = 0, curX = 0, activeCard = null;
+
+  stack.addEventListener('pointerdown', function(e){
+    var front = stack.children[0];
+    if(!front.contains(e.target)) return;
+    activeCard = front;
+    dragging = true; lockedHorizontal = false; resolved = false;
+    startX = e.clientX; startY = e.clientY; curX = 0;
+    activeCard.classList.add('dragging');
+    try{ activeCard.setPointerCapture(e.pointerId); }catch(err){}
+  });
+
+  stack.addEventListener('pointermove', function(e){
+    if(!dragging || !activeCard) return;
+    var dx = e.clientX - startX;
+    var dy = e.clientY - startY;
+    if(!resolved){
+      if(Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      resolved = true;
+      lockedHorizontal = Math.abs(dx) > Math.abs(dy);
+      if(!lockedHorizontal){ dragging = false; activeCard.classList.remove('dragging'); activeCard = null; return; }
+      hideHint();
+    }
+    e.preventDefault();
+    curX = dx;
+    activeCard.style.transform = 'translateX('+dx+'px) rotate('+(dx/18)+'deg)';
+    activeCard.style.opacity = String(Math.max(1 - Math.abs(dx)/300, .35));
+  });
+
+  function endDrag(){
+    if(!dragging || !activeCard) return;
+    dragging = false;
+    activeCard.classList.remove('dragging');
+    var threshold = 88;
+    if(Math.abs(curX) > threshold){
+      var card = activeCard;
+      var flyX = curX < 0 ? -620 : 620;
+      var flyRot = curX < 0 ? -22 : 22;
+      card.style.transition = 'transform .32s ease, opacity .32s ease';
+      card.style.transform = 'translateX('+flyX+'px) rotate('+flyRot+'deg)';
+      card.style.opacity = '0';
+      setTimeout(function(){
+        stack.appendChild(card);
+        card.style.transition = 'none';
+        card.style.transform = '';
+        card.style.opacity = '';
+        void card.offsetWidth;
+        card.style.transition = '';
+        updateCounter();
+      }, 300);
+    } else {
+      activeCard.style.transition = 'transform .3s ease, opacity .3s ease';
+      activeCard.style.transform = '';
+      activeCard.style.opacity = '';
+    }
+    activeCard = null; curX = 0;
+  }
+  stack.addEventListener('pointerup', endDrag);
+  stack.addEventListener('pointercancel', endDrag);
 })();
 </script>
 </body>

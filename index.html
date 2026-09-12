@@ -46,11 +46,11 @@
 
   /* ---------- hero ---------- */
   main{position:relative;z-index:1;}
-  .hero{padding:60px 0 8px;}
-  .hero h1{font-size:clamp(32px,6.6vw,50px);max-width:600px;}
+  .hero{padding:60px 0 8px;text-align:center;}
+  .hero h1{font-size:clamp(32px,6.6vw,50px);max-width:680px;margin:0 auto;}
   .hero h1 span{color:var(--cyan);}
-  .hero p.lead{font-size:16.5px;max-width:480px;margin-top:16px;}
-  .hero-cta{margin-top:26px;}
+  .hero p.lead{font-size:16.5px;max-width:580px;margin:16px auto 0;}
+  .hero-cta{margin-top:26px;text-align:center;}
   .btn-primary{
     display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:14px;
     font-weight:700;font-size:15px;background:linear-gradient(120deg,var(--purple),var(--cyan));color:#0a0812;
@@ -77,12 +77,13 @@
   .reel-tile video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
 
   /* ---------- pain mirror ---------- */
-  .mirror h2{font-size:clamp(24px,4vw,32px);max-width:520px;}
-  .mirror-lines{display:flex;flex-direction:column;gap:14px;margin-top:22px;}
-  .mirror-lines p{font-size:18px;color:var(--text);line-height:1.5;max-width:540px;font-weight:500;}
+  .mirror{text-align:center;}
+  .mirror h2{font-size:clamp(24px,4vw,32px);max-width:600px;margin:0 auto;}
+  .mirror-lines{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:22px;}
+  .mirror-lines p{font-size:18px;color:var(--text);line-height:1.5;max-width:620px;font-weight:500;}
   .mirror-punch{
-    margin-top:28px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
-    font-size:clamp(20px,3vw,26px);color:var(--text);max-width:600px;line-height:1.3;
+    margin:28px auto 0;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
+    font-size:clamp(20px,3vw,26px);color:var(--text);max-width:650px;line-height:1.3;
   }
   .mirror-punch span{color:var(--cyan);}
 
@@ -100,7 +101,7 @@
     background:linear-gradient(90deg,transparent,rgba(155,47,255,.7),rgba(35,233,255,.5),transparent);
   }
   .finale #produtos .section-head h2{font-size:clamp(28px,4.6vw,38px);}
-  .produtos-head{text-align:center;max-width:600px;margin:0 auto 26px;}
+  .produtos-head{text-align:center;max-width:640px;margin:0 auto 26px;}
   .produtos-head p{margin-left:auto;margin-right:auto;}
   .kicker-badge{
     display:inline-flex;align-items:center;gap:6px;margin-bottom:14px;
@@ -140,7 +141,7 @@
   /* ---------- capability line ---------- */
   .capabilities{
     padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    display:flex;flex-wrap:wrap;gap:10px 28px;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;
   }
   .capabilities span{font-size:14.5px;color:var(--text);font-weight:500;}
   .capabilities span b{color:var(--cyan);font-weight:600;}
@@ -179,8 +180,8 @@
 
   /* ---------- section shells ---------- */
   section{padding:52px 0;position:relative;z-index:1;}
-  .section-head{max-width:560px;margin-bottom:8px;}
-  .section-head p{margin-top:10px;font-size:15px;}
+  .section-head{max-width:640px;margin:0 auto 8px;text-align:center;}
+  .section-head p{margin:10px auto 0;font-size:15px;}
 
   /* ---------- products ---------- */
   .products{
@@ -189,7 +190,7 @@
     margin:28px -24px 0;padding:4px 24px 6px;
   }
   .products::-webkit-scrollbar{display:none;}
-  .scroll-hint{font-size:12.5px;color:var(--muted-2);margin-top:20px;}
+  .scroll-hint{font-size:12.5px;color:var(--muted-2);margin-top:20px;text-align:center;}
 
   .card{
     border-radius:18px;padding:26px;background:var(--panel);border:1px solid var(--line);
@@ -216,7 +217,7 @@
   .card.hi .card-cta{background:linear-gradient(120deg,var(--purple),var(--cyan));color:#0a0812;border:none;}
 
   /* ---------- closing ---------- */
-  .closing{border-top:1px solid var(--line);padding-top:30px;font-size:13.5px;color:var(--muted-2);}
+  .closing{border-top:1px solid var(--line);padding-top:30px;font-size:13.5px;color:var(--muted-2);text-align:center;max-width:640px;margin:0 auto;}
 
   footer{padding:30px 0 40px;}
   .foot-row{display:flex;flex-direction:column;gap:14px;}

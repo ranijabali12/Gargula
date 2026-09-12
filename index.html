@@ -86,13 +86,56 @@
   }
   .mirror-punch span{color:var(--cyan);}
 
+  /* ---------- finale panel: the destination the whole page builds toward ---------- */
+  .finale{
+    position:relative;margin-top:12px;padding:44px 20px 4px;border-radius:32px;
+    background:
+      radial-gradient(120% 90% at 50% 0%, rgba(155,47,255,.16), transparent 62%),
+      linear-gradient(180deg,#0a0714,#050309 70%);
+    border:1px solid rgba(155,47,255,.22);
+    overflow:hidden;
+  }
+  .finale::before{
+    content:"";position:absolute;top:0;left:12%;right:12%;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(155,47,255,.7),rgba(35,233,255,.5),transparent);
+  }
+  .finale #produtos .section-head h2{font-size:clamp(28px,4.6vw,38px);}
+  .produtos-head{text-align:center;max-width:600px;margin:0 auto 26px;}
+  .produtos-head p{margin-left:auto;margin-right:auto;}
+  .kicker-badge{
+    display:inline-flex;align-items:center;gap:6px;margin-bottom:14px;
+    font-size:12.5px;font-weight:700;color:var(--cyan);
+    padding:7px 16px;border-radius:100px;
+    background:rgba(35,233,255,.08);border:1px solid rgba(35,233,255,.3);
+  }
+
+  /* ---------- vertical light thread guiding the eye down the page ---------- */
+  .thread{
+    position:absolute;left:6px;top:0;bottom:0;width:3px;
+    z-index:0;pointer-events:none;border-radius:2px;
+    background:linear-gradient(180deg,
+      rgba(155,47,255,.15) 0%,
+      rgba(155,47,255,.22) 20%,
+      rgba(155,47,255,.4) 50%,
+      rgba(155,47,255,.62) 75%,
+      rgba(35,233,255,.9) 100%);
+    box-shadow:0 0 16px 2px rgba(155,47,255,.25);
+  }
+
+  @keyframes pulseGlow{
+    0%,100%{box-shadow:0 24px 60px -20px rgba(155,47,255,.45),0 0 0 1px rgba(155,47,255,.35) inset;}
+    50%{box-shadow:0 26px 70px -16px rgba(155,47,255,.75),0 0 0 1px rgba(155,47,255,.55) inset;}
+  }
+
   /* ---------- closer ---------- */
   .closer{
-    text-align:center;border-radius:24px;padding:48px 26px;
-    background:linear-gradient(160deg,#181233,#0a0816);border:1px solid rgba(155,47,255,.4);
+    text-align:center;border-radius:24px;padding:48px 26px;margin-bottom:44px;
+    background:linear-gradient(160deg,#1c1440,#0a0816);border:1px solid rgba(155,47,255,.5);
+    animation:pulseGlow 3.2s ease-in-out infinite;
   }
-  .closer h2{font-size:clamp(23px,3.6vw,30px);max-width:520px;margin:0 auto 10px;}
-  .closer p{font-size:15px;max-width:420px;margin:0 auto 24px;}
+  .closer h2{font-size:clamp(24px,3.8vw,32px);max-width:520px;margin:0 auto 10px;}
+  .closer p{font-size:15px;max-width:420px;margin:0 auto 26px;}
+  .closer .btn-primary{padding:17px 30px;font-size:16px;}
 
   /* ---------- capability line ---------- */
   .capabilities{
@@ -101,6 +144,38 @@
   }
   .capabilities span{font-size:14.5px;color:var(--text);font-weight:500;}
   .capabilities span b{color:var(--cyan);font-weight:600;}
+
+  /* ---------- style gallery ---------- */
+  .gallery{
+    display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    margin:0 -24px 0;padding:4px 24px 6px;
+  }
+  .gallery::-webkit-scrollbar{display:none;}
+  .gallery-item{
+    position:relative;flex:0 0 44%;aspect-ratio:9/16;border-radius:14px;overflow:hidden;
+    border:1px solid var(--line);scroll-snap-align:center;background:#0e0b1e;
+  }
+  .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gallery-item .tag{
+    position:absolute;left:9px;bottom:9px;font-size:11.5px;font-weight:700;color:#fff;
+    background:rgba(4,3,8,.6);backdrop-filter:blur(6px);padding:5px 10px;border-radius:100px;
+    border:1px solid rgba(255,255,255,.12);
+  }
+
+  /* ---------- niches grid ---------- */
+  .niche-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:24px;}
+  .niche-card{
+    aspect-ratio:1/1;border-radius:14px;background:var(--panel);border:1px solid var(--line);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:8px;gap:6px;
+  }
+  .niche-card .icon{
+    font-size:16px;width:32px;height:32px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,rgba(155,47,255,.2),rgba(35,233,255,.2));
+  }
+  .niche-card .name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:10.5px;color:var(--text);line-height:1.25;}
 
   /* ---------- section shells ---------- */
   section{padding:52px 0;position:relative;z-index:1;}
@@ -120,7 +195,13 @@
     border-radius:18px;padding:26px;background:var(--panel);border:1px solid var(--line);
     display:flex;flex-direction:column;flex:0 0 82%;scroll-snap-align:center;min-width:0;
   }
-  .card.hi{border:1px solid rgba(155,47,255,.5);}
+  .card.hi{
+    border:1px solid rgba(155,47,255,.65);
+    background:linear-gradient(165deg,#1b1438,#0d0a1e);
+    box-shadow:0 26px 60px -22px rgba(155,47,255,.5);
+    position:relative;
+  }
+  .card.hi .price{font-size:32px;}
   .card h3{font-size:19px;margin-bottom:10px;}
   .card .note{font-size:12.5px;color:var(--cyan);font-weight:600;margin-bottom:10px;}
   .card .desc{font-size:14px;margin-bottom:20px;flex:1;}
@@ -147,6 +228,13 @@
   @media(min-width:820px){
     .products{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:28px 0 0;padding:0;}
     .card{flex:none;}
+    .card.hi{transform:translateY(-14px) scale(1.045);}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;margin:20px 0 0;padding:0;}
+    .gallery-item{flex:none;}
+    .niche-grid{grid-template-columns:repeat(4,1fr);gap:14px;}
+    .niche-card{padding:14px;gap:10px;border-radius:20px;}
+    .niche-card .icon{font-size:26px;width:52px;height:52px;}
+    .niche-card .name{font-size:13.5px;}
     .scroll-hint{display:none;}
     .foot-row{flex-direction:row;justify-content:space-between;align-items:center;}
   }
@@ -165,6 +253,7 @@
 </header>
 
 <main class="wrap">
+<div class="thread"></div>
 
   <section class="hero">
     <h1>Você vai continuar só assistindo, <span>ou vai criar o seu?</span></h1>
@@ -204,8 +293,45 @@
     <span><b>Sem</b> experiência com edição</span>
   </section>
 
-  <section id="produtos">
+  <section class="gallery-section">
     <div class="section-head">
+      <h2>O estilo é você quem escolhe</h2>
+      <p>Realista, anime, pixel art, 3D, claymation — o mesmo método serve pra qualquer estética. Todas essas imagens foram geradas com IA em minutos.</p>
+    </div>
+    <p class="scroll-hint">Deslize para o lado para ver os estilos →</p>
+    <div class="gallery">
+      <div class="gallery-item"><img src="/images/realista.jpg" alt="Estilo realista gerado com IA" loading="lazy"><span class="tag">Realista</span></div>
+      <div class="gallery-item"><img src="/images/pixar.jpg" alt="Estilo 3D Pixar gerado com IA" loading="lazy"><span class="tag">3D Pixar</span></div>
+      <div class="gallery-item"><img src="/images/anime.jpg" alt="Estilo anime gerado com IA" loading="lazy"><span class="tag">Anime</span></div>
+      <div class="gallery-item"><img src="/images/cinema.jpg" alt="Estilo cinematográfico gerado com IA" loading="lazy"><span class="tag">Cinematográfico</span></div>
+      <div class="gallery-item"><img src="/images/gotico.jpg" alt="Estilo gótico gerado com IA" loading="lazy"><span class="tag">Gótico</span></div>
+      <div class="gallery-item"><img src="/images/clay.jpg" alt="Estilo claymation gerado com IA" loading="lazy"><span class="tag">Claymation</span></div>
+      <div class="gallery-item"><img src="/images/cartoon.jpg" alt="Estilo cartoon gerado com IA" loading="lazy"><span class="tag">Cartoon</span></div>
+      <div class="gallery-item"><img src="/images/pixel.jpg" alt="Estilo pixel art gerado com IA" loading="lazy"><span class="tag">Pixel Art</span></div>
+    </div>
+  </section>
+
+  <section class="niches">
+    <div class="section-head">
+      <h2>Nichos que ainda ninguém saturou</h2>
+      <p>Enquanto todo mundo briga pelos mesmos temas, esses aqui ainda têm espaço sobrando pra crescer.</p>
+    </div>
+    <div class="niche-grid">
+      <div class="niche-card"><div class="icon">👻</div><div class="name">Terror &amp; Creepypasta</div></div>
+      <div class="niche-card"><div class="icon">🙏</div><div class="name">Gospel &amp; Motivação Cristã</div></div>
+      <div class="niche-card"><div class="icon">🐉</div><div class="name">Mitologia &amp; Lendas</div></div>
+      <div class="niche-card"><div class="icon">🔮</div><div class="name">Espiritualidade</div></div>
+      <div class="niche-card"><div class="icon">🕵️</div><div class="name">True Crime</div></div>
+      <div class="niche-card"><div class="icon">🦉</div><div class="name">Curiosidades Animais</div></div>
+      <div class="niche-card"><div class="icon">🏛️</div><div class="name">Civilizações Antigas</div></div>
+      <div class="niche-card"><div class="icon">🛸</div><div class="name">Teorias &amp; Ficção Científica</div></div>
+    </div>
+  </section>
+
+  <div class="finale">
+  <section id="produtos">
+    <div class="section-head produtos-head">
+      <span class="kicker-badge">É aqui que começa</span>
       <h2>Escolha começar agora</h2>
       <p>Do material de apoio ao treinamento completo — o primeiro passo é sempre o único que importa.</p>
     </div>
@@ -250,6 +376,7 @@
       <a class="btn-primary" href="#produtos">Quero começar agora</a>
     </div>
   </section>
+  </div>
 
 </main>
 

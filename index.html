@@ -101,6 +101,7 @@
     background:linear-gradient(90deg,transparent,rgba(155,47,255,.7),rgba(35,233,255,.5),transparent);
   }
   .finale #produtos .section-head h2{font-size:clamp(24px,4.6vw,36px);}
+  .finale #produtos{padding-bottom:22px;}
   .produtos-head{text-align:center;max-width:640px;margin:0 auto 26px;}
   .produtos-head p{margin-left:auto;margin-right:auto;}
   .kicker-badge{
@@ -138,7 +139,8 @@
   }
 
   /* ---------- closer ---------- */
-  .closer-section{padding-bottom:0!important;}
+  .closer-section{padding-top:22px;padding-bottom:0!important;}
+  .section-divider{border-top:1px solid var(--line);max-width:640px;margin:0 auto;}
   .closer{
     text-align:center;border-radius:24px;padding:48px 26px;margin-bottom:0;
     background:linear-gradient(160deg,#1c1440,#0a0816);border:1px solid rgba(155,47,255,.5);
@@ -214,10 +216,9 @@
     position:relative;
   }
   .discount-badge{
-    position:absolute;top:14px;right:14px;
-    background:linear-gradient(120deg,var(--purple),var(--cyan));color:#0a0812;
-    font-size:11.5px;font-weight:800;padding:5px 11px;border-radius:8px;
-    letter-spacing:.2px;
+    display:inline-flex;align-items:center;
+    background:rgba(35,233,255,.1);border:1px solid rgba(35,233,255,.4);color:var(--cyan);
+    font-size:14px;font-weight:800;padding:3px 9px;border-radius:7px;letter-spacing:.2px;
   }
   .card.hi .price{font-size:32px;}
   .card h3{font-size:19px;margin-bottom:10px;}
@@ -227,15 +228,14 @@
     font-family:'SF Mono','Courier New',monospace;font-size:11.5px;color:#a7f7ff;
     background:#080716;border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-bottom:20px;
   }
-  .price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+  .price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;flex-wrap:wrap;}
   .price-old{font-size:14px;color:var(--muted-2);text-decoration:line-through;font-weight:500;}
   .price{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:28px;}
-  .price-note{font-size:12px;color:var(--muted-2);}
+  .price-note{font-size:12px;color:var(--muted-2);display:block;margin-bottom:16px;}
   .card-cta{display:block;text-align:center;padding:13px;border-radius:11px;font-weight:700;font-size:14px;background:#161328;border:1px solid var(--line);color:var(--text);}
   .card.hi .card-cta{background:linear-gradient(120deg,var(--purple),var(--cyan));color:#0a0812;border:none;}
 
   /* ---------- closing ---------- */
-  .closing{border-top:1px solid var(--line);padding-top:30px;font-size:13.5px;color:var(--muted-2);text-align:center;max-width:640px;margin:0 auto;}
 
   footer{padding:30px 0 40px;}
   .foot-row{display:flex;flex-direction:column;gap:14px;}
@@ -545,28 +545,28 @@
     <div class="products">
 
       <div class="card">
-        <span class="discount-badge">-20%</span>
         <h3>Ebook Método Gárgula</h3>
         <p class="desc">27 páginas e 14 capítulos com um plano de 30 dias pra organizar sua rotina de criação, do zero.</p>
-        <div class="price-row"><span class="price-old">R$49,99</span><span class="price">R$39,99</span><span class="price-note">pagamento único</span></div>
+        <div class="price-row"><span class="price-old">R$49,99</span><span class="discount-badge">-20%</span><span class="price">R$39,99</span></div>
+        <div class="price-note">pagamento único</div>
         <a class="card-cta" href="https://pay.cakto.com.br/4zjranf_1101962">Comprar</a>
       </div>
 
       <div class="card hi">
-        <span class="discount-badge">-34%</span>
         <div class="note">Treinamento completo</div>
         <h3>Método Gárgula</h3>
         <p class="desc">O passo a passo inteiro em vídeo-aulas: escolha de nicho, criação com IA, edição e monetização.</p>
-        <div class="price-row"><span class="price-old">R$349,99</span><span class="price">R$229,99</span><span class="price-note">menos de R$1/dia</span></div>
+        <div class="price-row"><span class="price-old">R$349,99</span><span class="discount-badge">-34%</span><span class="price">R$229,99</span></div>
+        <div class="price-note">menos de R$1/dia</div>
         <a class="card-cta" href="/metodo">Começar agora</a>
       </div>
 
       <div class="card">
-        <span class="discount-badge">-38%</span>
         <h3>Banco de Prompts</h3>
         <p class="desc">1000 prompts prontos pra copiar e colar em qualquer ferramenta de IA.</p>
         <div class="prompt-preview">&gt; Gere 15 títulos para vídeos sobre [tema]...</div>
-        <div class="price-row"><span class="price-old">R$39,99</span><span class="price">R$24,99</span><span class="price-note">pagamento único</span></div>
+        <div class="price-row"><span class="price-old">R$39,99</span><span class="discount-badge">-38%</span><span class="price">R$24,99</span></div>
+        <div class="price-note">pagamento único</div>
         <a class="card-cta" href="https://pay.cakto.com.br/haqgy92_1102190">Comprar</a>
       </div>
 
@@ -574,9 +574,7 @@
     <a class="faq-link" href="/duvidas.html">Ainda com dúvida? Veja as perguntas frequentes →</a>
   </section>
 
-  <section>
-    <p class="closing">O único risco aqui é continuar exatamente onde você está. Pagamento processado com segurança pela Cakto. Garantia de reembolso de 7 dias em qualquer um dos itens acima.</p>
-  </section>
+  <div class="section-divider"></div>
 
   <section class="closer-section">
     <div class="closer">

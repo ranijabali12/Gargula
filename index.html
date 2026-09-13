@@ -205,12 +205,19 @@
   .card{
     border-radius:18px;padding:26px;background:var(--panel);border:1px solid var(--line);
     display:flex;flex-direction:column;flex:0 0 82%;scroll-snap-align:center;min-width:0;
+    position:relative;
   }
   .card.hi{
     border:1px solid rgba(155,47,255,.65);
     background:linear-gradient(165deg,#1b1438,#0d0a1e);
     box-shadow:0 26px 60px -22px rgba(155,47,255,.5);
     position:relative;
+  }
+  .discount-badge{
+    position:absolute;top:14px;right:14px;
+    background:linear-gradient(120deg,var(--purple),var(--cyan));color:#0a0812;
+    font-size:11.5px;font-weight:800;padding:5px 11px;border-radius:8px;
+    letter-spacing:.2px;
   }
   .card.hi .price{font-size:32px;}
   .card h3{font-size:19px;margin-bottom:10px;}
@@ -538,6 +545,7 @@
     <div class="products">
 
       <div class="card">
+        <span class="discount-badge">-20%</span>
         <h3>Ebook Método Gárgula</h3>
         <p class="desc">27 páginas e 14 capítulos com um plano de 30 dias pra organizar sua rotina de criação, do zero.</p>
         <div class="price-row"><span class="price-old">R$49,99</span><span class="price">R$39,99</span><span class="price-note">pagamento único</span></div>
@@ -545,6 +553,7 @@
       </div>
 
       <div class="card hi">
+        <span class="discount-badge">-34%</span>
         <div class="note">Treinamento completo</div>
         <h3>Método Gárgula</h3>
         <p class="desc">O passo a passo inteiro em vídeo-aulas: escolha de nicho, criação com IA, edição e monetização.</p>
@@ -553,6 +562,7 @@
       </div>
 
       <div class="card">
+        <span class="discount-badge">-38%</span>
         <h3>Banco de Prompts</h3>
         <p class="desc">1000 prompts prontos pra copiar e colar em qualquer ferramenta de IA.</p>
         <div class="prompt-preview">&gt; Gere 15 títulos para vídeos sobre [tema]...</div>
